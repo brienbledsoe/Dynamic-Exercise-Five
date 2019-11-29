@@ -11,7 +11,7 @@ import UserProfile from "./pages/UserProfile"
 function App() {
   return (
     <div className="App">
-    <Header/> 
+    <Header/>
       <Router>
           <Route exact path="/" component={UserProfile} />
           <Route exact path="/login" component={Login} />
