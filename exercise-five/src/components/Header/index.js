@@ -10,7 +10,7 @@ export default function Header( {loggedIn} ){
       {loggedIn && <a href="/log-out">Logout</a>}
     </nav>
     </header>
-  );
+  )
 
 
 }

@@ -9,6 +9,6 @@ export default function UserProfile(){
       <div>UserProfile</div>
       <UserInformation />
     </div>
-  )
+  );
 
 }
