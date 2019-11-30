@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header({loggedIn}){
+export default function Header( {loggedIn} ){
   return(
     <header className="Header">
     <nav>
@@ -10,7 +10,7 @@ export default function Header({loggedIn}){
       {loggedIn && <a href="/log-out">Logout</a>}
     </nav>
     </header>
-  )
+  );
 
 
 }
