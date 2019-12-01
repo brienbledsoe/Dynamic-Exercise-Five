@@ -1,27 +1,25 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 
 .Header{
+  padding: 0 25px;
   border-bottom: 1px solid black;
+  font-size: 12px;
 }
 
 .Header nav{
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10 px;
 
+}
+
+.Header nav a{
+  color: black;
+  display: inline-block;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+#user{
+  text-align: center;
 }

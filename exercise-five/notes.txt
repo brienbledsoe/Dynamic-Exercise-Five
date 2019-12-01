@@ -3,3 +3,38 @@ taken from index.js in src directory under the document.getElementById
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
+
+I KEEP GETTING THIS ERROR NETLIFY LOG:
+
+×
+Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+
+Userprofile page works perfectly in browser when I npm start in local host 3000!!!
+
+================================================================================================================================================================
+Original code from class last Thursday 11/21/2019
+
+//code belongs in UserProfile index.js file
+
+import React from 'react'
+
+//this is the componenet that we're pushing here
+import { UserInformation } from "../../components/UserProfileComponents"
+
+export default function UserProfile() {
+  return(
+    <div>
+      <div>UserProfile</div>
+      <UserInformation />
+    </div>
+  );
+
+}
+
+==============================================================================================================================================================
+
+.Header{
+  padding: 0 25px; in picture the professor only has this first line in and not the bottom
+  border-bottom: 1px solid black;
+}
