@@ -80,7 +80,7 @@ function loginFunction(e){
   let password = e.currentTarget.loginPassword.value;
   firebase
     .auth()
-    .createUserWithEmailAndPassword(email, password)
+    .signInWithEmailAndPassword(email, password)
     .then(function(response) {
       setLoggedIn(true);
     })
@@ -90,7 +90,7 @@ function loginFunction(e){
 }
 
 function logoutFunction(){
-  firebase.auth().signOut.then(function() {
+  firebase.auth().signOut().then(function() {
     setLoggedIn(false);
   }).catch(function(error) {
     console.log('error',error);
@@ -100,7 +100,7 @@ function logoutFunction(){
 
   return (
     <div className="App">
-    <Header loggedIn={false}/>
+    <Header loggedIn={loggedIn} logoutFunction={logoutFunction}/>
       <Router>
 
         <Route exact path="/">
