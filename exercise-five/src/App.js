@@ -1,8 +1,7 @@
-import React from 'react';
 import './App.css';
 
 //Components & Pages to IMPORT
-import Rect, {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Route,BrowserRouter as Router, Redirect} from 'react-router-dom'
 import Header from "./components/Header";
 import Login from "./pages/Login/index.js";
@@ -25,6 +24,7 @@ var firebaseConfig = {
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
 
 useEffect(() => {
   //initiallize firebase
@@ -46,14 +46,16 @@ useEffect(() => {
   firebase.auth().onAuthStateChanged(function(user) {
     if(user) {
       setLoggedIn(true);
+      setUser(user);
     }else{
       setLoggedIn(false);
+      setUser({});
     }
   });
 
 }, [])
 
-function signupFunction(e){;
+function signupFunction(e){
   e.preventDefault();
   //let email = 'bab619@nyu.edu'
   //let password = 'Dreamsmadereal1997!'
@@ -62,7 +64,7 @@ function signupFunction(e){;
   let password = e.currentTarget.createPassword.value;
   firebase
     .auth()
-    .createUserWithEmailAndPassword(email,paassword)
+    .createUserWithEmailAndPassword(email,password)
     .then(function(response){
       setLoggedIn(true);
     })
@@ -76,7 +78,6 @@ function loginFunction(e){
 
   let email= e.currentTarget.loginEmail.value;
   let password = e.currentTarget.loginPassword.value;
-  let password =  "Dreamsmadereal1997!";
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
@@ -103,15 +104,15 @@ function logoutFunction(){
       <Router>
 
         <Route exact path="/">
-          { loggedIn ? <UserProfile /> : <Redirect to="login" />}
+          { loggedIn ? <UserProfile user={user}/> : <Redirect to="login" />}
         </Route>
 
         <Route exact path="/login">
-         { loggedIn ? <Redirect to="/" : <Login loginFunction = {loginFunction}/> }
+         { loggedIn ? <Redirect to="/"/> : <Login loginFunction={loginFunction} />}
         </Route>
 
         <Route exact path="/sign-up">
-           { loggedIn ? <Redirect to="/" /> : <Signup signupFunction = {signupFunction}/>}
+           { loggedIn ? <Redirect to="/"/> : <Signup signupFunction={signupFunction} />}
         </Route>
 
       </Router>

@@ -1,12 +1,13 @@
 import React from 'react'
 
 //this is the componenet that we're pushing here
-import CreateAccountForm from "../..components/createAccountForm"
+import CreateAccountForm from "../../components/CreateAccountForm"
+
 export default function Signup({ signupFunction }) {
   return(
     <div>
       <div>Sign-up</div>
-      <CreateaccountForm submitFunction={signupFunction} />
+      <CreateAccountForm submitFunction={ signupFunction } />
     </div>
   );
 

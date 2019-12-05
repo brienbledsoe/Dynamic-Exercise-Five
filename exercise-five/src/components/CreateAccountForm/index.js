@@ -4,13 +4,13 @@ export default function CreateAccountForm({ submitFunction }) {
   return(
     <div>
       <form onSubmit ={ e => submitFunction(e)}>
-        <label htmlfor="loginEmail">Email</label>
+        <label htmlFor="loginEmail">Email</label>
         <input type="email" name="loginEmail" placeholder="Email"/>
-        <label htmlfor="loginPassword">Password</label>
+        <label htmlFor="loginPassword">Password</label>
         <input type="password" name="loginPassword" placeholder="Password"/>
         <button>Create Account</button>
       </form>
-    <div>
+    </div>
   );
 
 }
